@@ -13,11 +13,13 @@ public class Brick extends GameObject{
 		super(x, y, width, height);
 		color = Color.GOLD;
 	}
-	
+
+    /*
 	public boolean isOverlappingWith(Ball B){
 		return (getX() < (B.getX()+B.getWidth()) && (getX()+getWidth()) > B.getX() && getY() < (B.getY()+B.getHeight()) && (getY()+getHeight()) > B.getY()); 
 	}
-	
+	*/
+
 	public Color getColor(){
 		return color;
 	}

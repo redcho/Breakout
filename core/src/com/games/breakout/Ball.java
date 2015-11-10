@@ -2,6 +2,7 @@ package com.games.breakout;
 
 import java.util.Random;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 
 public class Ball extends GameObject{
@@ -17,13 +18,25 @@ public class Ball extends GameObject{
 		setSpeed(0, getSpeed());
 	}
 
+    /*
 	public boolean isOverlappingWith(Paddle B){
 		return (getX() < (B.getX()+B.getWidth()) && (getX()+getWidth()) > B.getX() && getY() < (B.getY()+B.getHeight()) && (getY()+getHeight()) > B.getY()); 
 	}
+	*/
 	
 	public void bounceFromPaddle(double dx, double dy){
 	
 		double newAngle = Math.atan2(dy, dx);
+        //TODO LIMIT ANGLE
+        double limit = Math.toDegrees(newAngle);
+        if(limit >= 170){
+            limit = 170;
+        }else if(limit <= 10){
+            limit = 10;
+        }
+
+        newAngle = Math.toRadians(limit);
+
 		double newSpeedX = Math.cos(newAngle)*getSpeed();
 		double newSpeedY = Math.sin(newAngle)*getSpeed();
 		setSpeed(newSpeedX, newSpeedY);

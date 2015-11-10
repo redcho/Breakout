@@ -18,10 +18,13 @@ public abstract class GameObject {
 		rec.x = startPositionX;
 		rec.y = startPositionY;
 	}
-	
-	public boolean isOverlappingWith(Rectangle B){
+
+
+	public boolean isOverlappingWith(GameObject other){
+        Rectangle B = other.rec;
 		return (getX() < (B.x+B.width) && (getX()+getWidth()) > B.x && getY() < (B.y+B.height) && (getY()+getHeight()) > B.y); 
 	}
+
 	
 	protected void increaseX(int speed){
 		rec.x += speed;
