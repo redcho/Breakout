@@ -27,14 +27,14 @@ public class Ball extends GameObject{
 	public void bounceFromPaddle(double dx, double dy){
 	
 		double newAngle = Math.atan2(dy, dx);
-        //TODO LIMIT ANGLE
-        double limit = Math.toDegrees(newAngle);
-        if(limit >= 170){
-            limit = 170;
-        }else if(limit <= 10){
-            limit = 10;
-        }
 
+        // Limit Angle
+        double limit = Math.toDegrees(newAngle);
+        if(limit >= 150){
+            limit = 150;
+        }else if(limit <= 30){
+            limit = 30;
+        }
         newAngle = Math.toRadians(limit);
 
 		double newSpeedX = Math.cos(newAngle)*getSpeed();
